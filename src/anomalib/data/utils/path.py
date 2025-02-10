@@ -110,7 +110,7 @@ def _prepare_files_labels(
     filenames = [
         f
         for f in path.glob("**/*")
-        if f.suffix in extensions and not f.is_dir() and not any(part.startswith(".") for part in f.parts)
+        if f.suffix.lower() in extensions and not f.is_dir() and not any(part.startswith(".") for part in f.parts)
     ]
     if not filenames:
         msg = f"Found 0 {path_type} images in {path} with extensions {extensions}"
